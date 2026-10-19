@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cafetería - Menú y Gestión de Pedidos</title>
+
+  <!-- aos -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
-    /* Estilos en CSS3 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -42,9 +45,9 @@
       background-color: #3d6a4e;
       color: white;
       padding: 8px 16px;
-      border-radius: 6px; 
+      border-radius: 6px;
       font-size: 0.95rem;
-      transition: background-color 0.2s ease; 
+      transition: background-color 0.2s ease;
     }
 
     nav a:hover {
@@ -67,6 +70,39 @@
       color: #2b4c38;
       font-size: 1.4rem;
       text-align: center;
+    }
+
+    /* Contador de fase 4 */
+    .contador-seccion {
+      text-align: center;
+    }
+
+    .contador-box h2#numero {
+      font-size: 64px;
+      color: rgb(68, 98, 109);
+      margin-bottom: 20px;
+      transition: transform 0.15s ease;
+    }
+
+    #btn-contador {
+      background-color: rgb(68, 98, 109);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #btn-contador:hover {
+      background-color: rgb(44, 62, 80);
+      transform: translateY(-2px);
+    }
+
+    #btn-contador:active {
+      transform: translateY(0);
     }
 
     /* MENÚ */
@@ -228,7 +264,16 @@
       background-color: #afceba;
     }
 
-    /* ADAPTACIONES DE TAMAÑO */
+    /* Footer de fase 4 */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    /* Adaptación de tamaño */
     @media (min-width: 768px) {
       body {
         padding: 30px;
@@ -249,21 +294,23 @@
   </style>
 </head>
 <body>
-    
+
   <header>
-    <h1>Cafetería - Menú Digital y Gestión</h1>
+    <h1 data-aos="fade-down" data-aos-duration="1000">Cafetería - Menú Digital y Gestión</h1>
     <nav>
       <a href="#menu">Menú Digital</a>
       <a href="#cocina">Comanda (Cocina)</a>
       <a href="#admin">Panel de Administración</a>
+      <a href="#contador">Contador de Pedidos</a>
     </nav>
   </header>
 
+  <!-- MENÚ -->
   <section id="menu" class="section-container">
-    <h2 class="section-title">Café Menú</h2>
+    <h2 class="section-title" data-aos="fade-right" data-aos-duration="800">Café Menú</h2>
     <div class="menu-grid">
 
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
         <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&auto=format&fit=crop&q=60" alt="Cappuccino">
         <h3>Cappuccino</h3>
         <p class="category">Coffee</p>
@@ -275,7 +322,7 @@
         </form>
       </div>
 
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
         <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300&auto=format&fit=crop&q=60" alt="Almond Croissant">
         <h3>Almond Croissant</h3>
         <p class="category">Pastry</p>
@@ -287,7 +334,7 @@
         </form>
       </div>
 
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
         <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=300&auto=format&fit=crop&q=60" alt="Cheesecake Slice">
         <h3>Cheesecake Slice</h3>
         <p class="category">Dessert</p>
@@ -299,7 +346,7 @@
         </form>
       </div>
 
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
         <img src="https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?w=300&auto=format&fit=crop&q=60" alt="Avocado Toast">
         <h3>Avocado Toast</h3>
         <p class="category">Food</p>
@@ -311,7 +358,7 @@
         </form>
       </div>
 
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
         <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=300&auto=format&fit=crop&q=60" alt="Cold Brew">
         <h3>Cold Brew</h3>
         <p class="category">Coffee</p>
@@ -323,7 +370,7 @@
         </form>
       </div>
 
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
         <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=300&auto=format&fit=crop&q=60" alt="Acai Bowl">
         <h3>Acai Bowl</h3>
         <p class="category">Food</p>
@@ -338,8 +385,9 @@
     </div>
   </section>
 
+  <!-- COMANDA -->
   <section id="cocina" class="section-container">
-    <h2 class="section-title">Kitchen Order List</h2>
+    <h2 class="section-title" data-aos="fade-left" data-aos-duration="800">Kitchen Order List</h2>
     <div class="table-responsive">
       <table>
         <thead>
@@ -398,9 +446,10 @@
       </table>
     </div>
   </section>
-
+  
+  <!-- Panel de admin -->
   <section id="admin" class="section-container">
-    <h2 class="section-title">Admin Panel</h2>
+    <h2 class="section-title" data-aos="fade-right" data-aos-duration="800">Admin Panel</h2>
     <div class="admin-columns">
       
       <div class="admin-box">
@@ -410,7 +459,7 @@
           <button class="btn-admin">👥 Groups</button>
         </div>
       </div>
-        
+
       <div class="admin-box">
         <h4>Orders & Menu Access</h4>
         <div class="admin-buttons">
@@ -422,6 +471,37 @@
     </div>
   </section>
 
+  <!-- CONTADOR (NÚMERO 0)-->
+  <section id="contador" class="section-container contador-seccion">
+    <h2 class="section-title" data-aos="fade-up" data-aos-duration="800">Contador de Pedidos</h2>
+    <div class="contador-box">
+      <h2 id="numero">0</h2>
+      <button id="btn-contador" type="button">Hacer clic</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Cafetería &copy; 2026</p>
+  </footer>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    // Saludo
+    console.log("¡Hola! Bienvenido a mi sitio web");
+
+    const numero = document.getElementById("numero");
+    const btnContador = document.getElementById("btn-contador");
+    let contador = 0;
+
+    btnContador.addEventListener("click", () => {
+      contador++;
+      numero.textContent = contador;
+    });
+  </script>
 </body>
 </html>
+
 
